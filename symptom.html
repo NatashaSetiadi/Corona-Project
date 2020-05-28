@@ -37,49 +37,52 @@
 
             <!--------------- hero section starts here --------------->
 
-            <div class="video-container">
+            <div class="video-container2">
                   <video playsinline autoplay muted loop id="bgvid" class="video">
-                        <source src="img/backgroundcover.mp4" type="video/mp4">
+                        <source src="img/bloodstream.mp4" type="video/mp4">
                   </video>
             </div>
 
-            <div class="header">
-                  <h1>Crown-lite</h1>
-                  <h6 class="text-center">Helping you during these unpredictable times</h6>
+            <div class="header2">
+                  <h1>Symptom Checker</h1>
             </div>
+
 
             <!--------------- hero section ends here --------------->
 
             <!--------------- navbar starts here --------------->
 
             <nav class="nav">
-
+                 
 
                   <ul id="menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Symptom Checker</a></li>
-     
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="symptom.html">Symptom Checker</a></li>
+                        <li><a href="testing-centers.html">Nearby Testing Centers</a></li>
+                        <li><a href="statistics.html">Corona statistics</a></li>
                   </ul>
-
+  
                   <div id="toggle">
                         <div class="span">menu</div>
                   </div>
-
+  
             </nav>
-
+  
             <div id="resize">
                   <div class="close-btn">close</div>
-
+  
                   <ul id="menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">Symptom Checker</a></li>
-
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="symptom.html">Symptom Checker</a></li>
+                        <li><a href="testing-centers.html">Nearby Testing Centers</a></li>
+                        <li><a href="statistics.html">Corona statistics</a></li>
+  
                   </ul>
             </div>
 
             <!--------------- navbar ends here --------------->
 
-            <div class="content">
+            <div class="content2">
 
                   <!--------------- about section starts here --------------->
 
@@ -260,7 +263,35 @@
                                                       </span></p>
                                                 <p> Team EN-DOS <br> Elizabeth Bruda, Natasha Setiadi, Donald Nelson,
                                                       Owen Orsini, and Sanjay Ravigopal</p> <br><br>
+
                                           </div>                            
+
+                                          </div>
+
+                                          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s" id="media">
+                                                <!-- <ul>
+                                                      <li><ion-icon name="logo-facebook"></ion-icon></li>
+      
+                                                      <li><ion-icon name="logo-instagram"></ion-icon></li>
+      
+                                                      <li><ion-icon name="logo-twitter"></ion-icon></li>
+      
+                                                      <li><ion-icon name="logo-youtube"></ion-icon></li>
+                                                </ul> -->
+      
+                                                <br><br>
+                                          </div>
+      
+                                          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s" id="mail">
+                                                <p><a target="_blank" >Video Background by Videezy.com</a></p>
+                                               
+                                          </div>
+
+
+
+                              </div>
+
+                        </div>
 
                   </div>
 
@@ -348,74 +379,72 @@ $('a[href*="#"]')
 
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <script>
-            $(window).on('load', function () {
+ $(window).on('load', function(){
 
-                  $('#status').fadeOut();
-                  $('#preloader').delay(350).fadeOut('slow');
-                  $('#body').delay(350).css({ 'overflow': 'visible' });
+$('#status').fadeOut();
+$('#preloader').delay(350).fadeOut('slow');
+$('#body').delay(350).css({'overflow': 'visible'});
 
-            })
-            // navigation starts here
-            $("#toggle").click(function () {
-                  $(this).toggleClass('on');
-                  $("#resize").toggleClass("active");
-            });
-            $("#resize ul li a").click(function () {
-                  $(this).toggleClass('on');
-                  $("#resize").toggleClass("active");
-            });
-            $(".close-btn").click(function () {
-                  $(this).toggleClass('on');
-                  $("#resize").toggleClass("active");
-            });
+})
+// navigation starts here
+$("#toggle").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
+      $("#resize ul li a").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
+      $(".close-btn").click(function() {
+            $(this).toggleClass('on');
+            $("#resize").toggleClass("active");
+      });
 
-            $(function () {
-                  $(document).scroll(function () {
-                        var $nav = $(".nav");
-                        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-                  });
-            });
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".nav");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+  });
+});
 
-            new WOW().init();
+new WOW().init();
 
-            // Select all links with hashes
-            $('a[href*="#"]')
-                  // Remove links that don't actually link to anything
-                  .not('[href="#"]')
-                  .not('[href="#0"]')
-                  .click(function (event) {
-                        // On-page links
-                        if (
-                              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-                              &&
-                              location.hostname == this.hostname
-                        ) {
-                              // Figure out element to scroll to
-                              var target = $(this.hash);
-                              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                              // Does a scroll target exist?
-                              if (target.length) {
-                                    // Only prevent default if animation is actually gonna happen
-                                    event.preventDefault();
-                                    $('html, body').animate({
-                                          scrollTop: target.offset().top
-                                    }, 1000, function () {
-                                          // Callback after animation
-                                          // Must change focus!
-                                          var $target = $(target);
-                                          $target.focus();
-                                          if ($target.is(":focus")) { // Checking if the target was focused
-                                                return false;
-                                          } else {
-                                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                                                $target.focus(); // Set focus again
-                                          };
-                                    });
-                              }
-                        }
-                  });
-
-
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
       </script>
 </body>
 

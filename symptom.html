@@ -27,7 +27,6 @@
       <link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css">
       <script src="https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
 <body>
       <div id="preloader" class="loaded">
             <div id="status"></div>
@@ -87,9 +86,7 @@
 
                   <!--------------- about section starts here --------------->
 
-
-
-                  <a name="about"></a>
+            <a name="about"></a>
 
                   <section class="story">
 
@@ -97,7 +94,6 @@
                         <div class="container-fluid">
 
                               <div class="section-data">
-
 
                               <div class="row">
                                     <div class="col-md-4"></div>
@@ -108,7 +104,6 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-6 section-info wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odio eligendi dolorem pariatur obcaecati iste voluptas laudantium vel voluptates, ipsa suscipit tempore alias laborum. Consequatur aliquam libero eaque! Delectus, suscipit?</div>
                               </div>
-
                                     <div class="row">
                                           <div class="col-md-2"></div>
                                           <div class="col-md-2 section-index wow fadeInUp" data-wow-delay="0.3s"></div>
@@ -129,7 +124,7 @@
                                           <div v-for="symptom in symptomsData">
                                                 <input type='checkbox' v-bind:value='symptom' v-model="checkedSymptoms">{{ symptom.texts }}
                                           </div>
-                                          
+                                          <p>Note: if you have anything of the symptoms marked with an asterisk (*) then you should seek emergency medical care immediately</p> 
 
                                           <!-- Print -->
                                           <!----Keep for checking if the checkboxes are working correctly 
@@ -162,10 +157,6 @@
                   <!--------------- about section ends here --------------->
 
                   <!--------------- services section starts here --------------->
-
-
-
-
 
 
            <section class="services">
@@ -254,13 +245,7 @@
             </div>
 
      </section>
-
-
-
-            
-
                   <!--------------- services section ends here --------------->
-
 
 
                   <!--------------- footer starts here --------------->
@@ -278,6 +263,9 @@
                                                       </span></p>
                                                 <p> Team EN-DOS <br> Elizabeth Bruda, Natasha Setiadi, Donald Nelson,
                                                       Owen Orsini, and Sanjay Ravigopal</p> <br><br>
+
+                                          </div>                            
+
                                           </div>
 
                                           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s" id="media">
@@ -387,7 +375,6 @@ $('a[href*="#"]')
 
 
 </script>
-
       <script src="Symptom_Script.js"></script>
 
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -459,7 +446,6 @@ $('a[href*="#"]')
     }
   });
       </script>
-
 </body>
 
 </html>

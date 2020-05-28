@@ -46,4 +46,16 @@ var app = new Vue({
         }
 })
 
-
+//I added this here as for some reason the mobile view only works if I put this code in your file rather than in a script tag
+$("#toggle").click(function() {
+    $(this).toggleClass('on');
+    $("#resize").toggleClass("active");
+});
+$("#resize ul li a").click(function() {
+    $(this).toggleClass('on');
+    $("#resize").toggleClass("active");
+});
+$(".close-btn").click(function() {
+    $(this).toggleClass('on');
+    $("#resize").toggleClass("active");
+});

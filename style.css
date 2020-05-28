@@ -22,7 +22,8 @@ html, body {
 .video-container2 {
       position: absolute;
       width: 100%;
-      height: 50vh;
+      height: 30vh;
+      background:black;
       overflow: hidden;
 }
 .video {
@@ -58,8 +59,8 @@ html, body {
       top: 0;
       left: 0;
       width: 100%;
-      height: 50vh;
-      /* background: #1b1b1b; */
+      height: 30vh;
+      background: #1b1b1b;
       opacity: 0.8;
 }
 .header {
@@ -68,7 +69,22 @@ html, body {
       left: 50%;
       transform: translate(-50%, -50%);
 }
-
+.header2{
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+.header2 h1 {
+      /* color: #d3ae87; */
+      color:white;
+      font-size: 75px !important;
+}
+.header2 h6 {
+      /* color: #d3ae87; */
+      color:white;
+      font-size: 30px !important;
+}
 .header h1 {
       /* color: #d3ae87; */
       color:white;
@@ -81,19 +97,6 @@ html, body {
 }
 
 
-.header2 {
-      position: absolute;
-      padding:100px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-}
-
-.header2 h1 {
-      /* color: #d3ae87; */
-      color:white;
-      /* font-size: 80px !important; */
-}
 
 
 .header2 h6 {
@@ -326,7 +329,7 @@ html, body {
 
 .content2 {
       position: absolute;
-      margin-top: 50vh;
+      margin-top: 25vh;
       width: 100%;
 }
 section {
@@ -355,7 +358,9 @@ section {
       font-size: 24px;
       color: grey;
 }
-
+.grey-section{
+      background:rgba(201, 201, 201, 0.185);
+}
 .more {
       margin: 40px 0;
 }

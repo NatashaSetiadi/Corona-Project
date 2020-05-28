@@ -1,34 +1,49 @@
 var app = new Vue({
 	el: '#app',
 	data: {
-		symptoms: [
+        symptomsData: [
 			{
-				text: "Dry cough",
-				point: 0
+				texts: "Persistent dry cough",
+                point: 3,
+                checked: false
+
 			},
 			{
-				text: "Fever greater than 100",
-				point: 0
-            },
-            {
-                text: "New loss of taste or smell",
-                point: 0
-            },
-            {
-                text: "Chills",
-                point: 0
-            },
+				texts: "Fever greater than 100",
+                point: 4,
+                checked: false
+			}
+        ],
+        
+        checkedSymptoms: [
 
-            {
-                text: "Muscle pain",
-                point: 0
-            }
+        ],
 
+        selectedSymptoms: ""
+    },
+    computed: {
+        totalSelected: function(){
+            total = ""
+            for(var i in this.checkedSymptoms)
             {
-                text: "Shortness of breath",
-                point: 0
+                total += this.checkedSymptoms[i].texts + ", "
             }
-		]
-	}
+            return total
+        }
+    },
+    methods: {
+          /* Keep for checking if the checkboxes work 
+          printValues: function()
+          {
+            this.selectedSymptoms = "";
+            // Read Checked checkboxes value
+            for (var key in this.checkedSymptoms) 
+            {
+               this.selectedSymptoms += this.checkedSymptoms[key]+", "; 
+            }
+          } 
+          */
+        }
 })
+
 

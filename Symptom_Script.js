@@ -110,7 +110,9 @@ var app = new Vue({
 
         ],
 
-        selectedSymptoms: ""
+        selectedSymptoms: "",
+
+        otherSymptoms: ""
     },
     computed: {
         totalSelected: function(){
@@ -123,6 +125,7 @@ var app = new Vue({
         }
     },
     methods: {
+        
           /* Keep for checking if the checkboxes work 
           printValues: function()
           {

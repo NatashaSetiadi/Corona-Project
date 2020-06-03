@@ -266,13 +266,14 @@ var app = new Vue({
     methods: {
         calculateSymptoms: function(event)
         {
-            console.log("Here")
             covid19total = this.countCovid;
-            covid19total *= this.selectedCategory;
+            covid19total *= this.selectedCategory; //adds in the location factor
 
+            //total from symptoms
             coldtotal = this.countCold;
             flutotal = this.countFlu;
 
+            //extra COVID19 symptoms that are less common
             if(this.otherSymptoms.includes("tired"))
             {
                 covid19total +=5;
@@ -293,15 +294,22 @@ var app = new Vue({
                 covid19total +=5;
             }
             
+            //divides by total possible points
             covid19total = covid19total / 1435;
             coldtotal = coldtotal / 155;
             flutotal =  flutotal/190;
+
+             /*
+            console.log("COVID: " + covid19total);
+            console.log("Cold: " + coldtotal);
+            console.log("Flu: " + flutotal); */
 
             var totals = [];
             totals.push(covid19total);
             totals.push(coldtotal);
             totals.push(flutotal);
 
+            //finds maximum value
             max = covid19total;
             maxIndex= 0
             for (var i = 1; i < totals.length; i++) 
@@ -313,16 +321,18 @@ var app = new Vue({
                 }
             }
 
+            //makes sure that all totals are greater than 0
             var NoneGreaterThanZero = true;
-            for (var j = 0; i < totals.length; i++) 
+            for (var j = 0; j < totals.length; j++) 
             {
-                if(totals[i] > 0)
+                if(totals[j] > 0)
                 {
                     NoneGreaterThanZero = false;
                     break;
                 }
             }
 
+         
             if(NoneGreaterThanZero == false)
             {
                 if(maxIndex == 0)
@@ -330,19 +340,14 @@ var app = new Vue({
                     this.result= "You most likely have COVID19";
                 }
 
-                else if(maxIndex == 1)
+                if(maxIndex == 1)
                 {
                     this.result= "You most likely have the cold";
                 }
 
-                else if(maxIndex == 2)
+                if(maxIndex == 2)
                 {
                     this.result= "You most likely have the flu";
-                }
-
-                else
-                {
-                    this.result= "You most likely do not have either COVID19, the cold, or the flu"
                 }
             }
 

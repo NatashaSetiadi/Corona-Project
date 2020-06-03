@@ -224,7 +224,10 @@ var app = new Vue({
         otherSymptoms: "",
 
         selectedCategory: 1,
-        result: ""
+        result: "",
+        percentage: null,
+        
+        hasAnyVirus: false
     },
     computed: {
         totalSelected: function(){
@@ -338,16 +341,25 @@ var app = new Vue({
                 if(maxIndex == 0)
                 {
                     this.result= "You most likely have COVID19";
+                    this.percentage = totals[0] * 100;
+                    this.percentage = this.percentage.toFixed(2);
+                    this.hasAnyVirus = true;
                 }
 
                 if(maxIndex == 1)
                 {
                     this.result= "You most likely have the cold";
+                    this.percentage = totals[1] * 100;
+                    this.percentage = this.percentage.toFixed(2);
+                    this.hasAnyVirus = true;
                 }
 
                 if(maxIndex == 2)
                 {
                     this.result= "You most likely have the flu";
+                    this.percentage = totals[2] * 100;
+                    this.percentage = this.percentage.toFixed(2);
+                    this.hasAnyVirus = true;
                 }
             }
 

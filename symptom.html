@@ -125,7 +125,6 @@
                                           <div class="col-md-4">
                                           </div>
                                           <div class="col-md-6 section-subheading wow fadeInUp" data-wow-delay="0.5s">
-                                                <h1>Symptom Checker application goes here</h1>
 
 
                                                 <!--VUE JS #APP BEGINS HERE-->
@@ -185,6 +184,8 @@
 
                                                       <button v-on:click="calculateSymptoms">Submit</button>
                                                       <p>{{result}}</p>
+                                                      <br>
+                                                      <p v-if="hasAnyVirus">Percent Certainty: {{percentage}}</p>
 
                                                 </div>
                                                 <!--VUE JS #APP ENDS HERE-->

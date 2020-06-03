@@ -27,6 +27,7 @@
       <link rel="stylesheet" href="https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css">
       <script src="https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 <body>
       <div id="preloader" class="loaded">
             <div id="status"></div>
@@ -53,7 +54,7 @@
             <!--------------- navbar starts here --------------->
 
             <nav class="nav">
-                 
+
 
                   <ul id="menu">
                         <li><a href="index.html">Home</a></li>
@@ -61,22 +62,22 @@
                         <li><a href="testing-centers.html">Nearby Testing Centers</a></li>
                         <li><a href="statistics.html">Corona statistics</a></li>
                   </ul>
-  
+
                   <div id="toggle">
                         <div class="span">menu</div>
                   </div>
-  
+
             </nav>
-  
+
             <div id="resize">
                   <div class="close-btn">close</div>
-  
+
                   <ul id="menu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="symptom.html">Symptom Checker</a></li>
                         <li><a href="testing-centers.html">Nearby Testing Centers</a></li>
                         <li><a href="statistics.html">Corona statistics</a></li>
-  
+
                   </ul>
             </div>
 
@@ -86,7 +87,7 @@
 
                   <!--------------- about section starts here --------------->
 
-            <a name="about"></a>
+                  <a name="about"></a>
 
                   <section class="story">
 
@@ -95,70 +96,109 @@
 
                               <div class="section-data">
 
-                              <div class="row">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-6 section-subheading wow fadeInUp" data-wow-delay="0.5s"><h1>Symptom Checker</h1></div>
-                              </div>
-
-                              <div class="row">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-6 section-info wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odio eligendi dolorem pariatur obcaecati iste voluptas laudantium vel voluptates, ipsa suscipit tempore alias laborum. Consequatur aliquam libero eaque! Delectus, suscipit?</div>
-                              </div>
                                     <div class="row">
-                                          <div class="col-md-2"></div>
-                                          <div class="col-md-2 section-index wow fadeInUp" data-wow-delay="0.3s"></div>
+                                          <div class="col-md-4"></div>
+                                          <div class="col-md-6 section-subheading wow fadeInUp" data-wow-delay="0.5s">
+                                                <h1>Symptom Checker</h1>
+                                          </div>
+                                    </div>
+
+                                    <div class="row">
+                                          <div class="col-md-4"></div>
+                                          <div class="col-md-6 section-info wow fadeInUp" data-wow-delay="0.6s">Note:
+                                                The Content is not intended to be a substitute for professional medical
+                                                advice, diagnosis, or treatment. Always seek the advice of your
+                                                physician or other qualified health provider with any questions you may
+                                                have regarding a medical condition. </div>
+                                    </div>
+
+                                    <div class="row">
+                                          <div class="col-md-2">
+                                          </div>
+                                          <div class="col-md-2 section-index wow fadeInUp" data-wow-delay="0.3s">
+                                          </div>
                                           <div class="col-md-8 section-heading wow fadeInUp" data-wow-delay="0.4s">
                                           </div>
                                     </div>
 
                                     <div class="row">
-                                          <div class="col-md-4"></div>
+                                          <div class="col-md-4">
+                                          </div>
                                           <div class="col-md-6 section-subheading wow fadeInUp" data-wow-delay="0.5s">
                                                 <h1>Symptom Checker application goes here</h1>
-                                                
-                                    <div id="app">
-                                          <!-- Checkboxes list --> <!--@submit.prevent="onSubmit"-->
-                                          <form class="symptom-inputs"> 
-                                                <div v-for="symptom in symptomsData">
-                                                      <input type='checkbox' v-bind:value='symptom' v-model="checkedSymptoms">{{ symptom.texts }}
-                                                 </div>
-                                                 <p><strong>Note: if you have anything of the symptoms marked with an asterisk (*) then you should seek emergency medical care immediately</strong></p> 
 
-                                                <!-- Print -->
-                                                <!----Keep for checking if the checkboxes are working correctly 
-                                                <input type='button' @click='printValues()' value='Print Selected Values'>
 
-                                                <br>
-                                                Selected items : {{ totalSelected }}      -->    
-                                                <div> 
-                                                      <label>Other Symptoms: </label><textarea class="other-symptoms"id="otherSymptoms" v-model="otherSymptoms"> 
-                                                      </textarea>
+                                                <!--VUE JS #APP BEGINS HERE-->
+                                                <div id="app">
+                                                      <!-- Checkboxes list -->
+                                                      <!--@submit.prevent="onSubmit"-->
+                                                      <form class="symptom-inputs">
+                                                            <div v-for="(symptom, index) in symptomsData">
+                                                                  <input type='checkbox' v-bind:value='symptom'
+                                                                        v-model="checkedSymptoms">{{ symptomsData[index].texts }}
+                                                                  </input>
+                                                            </div>
+                                                            <p><strong>Note: if you have anything of the symptoms marked
+                                                                        with an asterisk (*) then you should seek
+                                                                        emergency medical care immediately</strong></p>
+
+                                                            <!---Keep for Printing Values  - Debug 
+                                                            <input type='button' @click='printValues()' value='Print Selected Values'></input>
+                                                            Selected items : {{ totalSelected }} 
+                                                            -->
+                                                            <div>
+                                                                  <label>Other Symptoms: </label>
+                                                                  <textarea class="other-symptoms" id="otherSymptoms"
+                                                                        v-model="otherSymptoms">
+                                                                  </textarea>
+                                                            </div>
+                                                            <br>
+                                                            <div>
+                                                                  <label for="LocationCategory">Use the map to select
+                                                                        the category which you have spent the most time
+                                                                        in.:</label>
+                                                                  <img src="img/categoryLegend.png">
+
+                                                                  <select name="LocationCategory"
+                                                                        v-model="selectedCategory">
+                                                                        <option value="7">7</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="1">2</option>
+                                                                        <option value="1">1</option>
+                                                                  </select>
+                                                            </div>
+                                                      </form>
+
+                                                      <h2>Use this map to determine which category you have spent the
+                                                            most time in</h2>
+                                                      <iframe style="width: 100%; height: 1000px; overflow: hidden;"
+                                                            src="https://www.arcgis.com/apps/opsdashboard/index.html#/409af567637846e3b5d4182fcd779bea"
+                                                            width="10" height="1000">Iframes not supported</iframe>
+                                                      <p>Credit: Johns Hopkins University</p>
+                                                      <div class="row">
+                                                            <div class="col-md-4"></div>
+                                                            <!-- <div class="col-md-6 section-info wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odio eligendi dolorem pariatur obcaecati iste voluptas laudantium vel voluptates, ipsa suscipit tempore alias laborum. Consequatur aliquam libero eaque! Delectus, suscipit?</div> -->
+                                                      </div>
+
+                                                      <button v-on:click="calculateSymptoms">Submit</button>
+                                                      <p v-model="result">{{result}}</p>
+
                                                 </div>
+                                                <!--VUE JS #APP ENDS HERE-->
 
-                                                <br>
-                                              
-                                          </form> 
-                                          
-                                    </div>
-                                          </div>
 
-                                    </div>
-
-                                    <h2>Use the Google Maps Feature to pinpoint locations where you have traveled to within the past 2 weeks</h2>
-                                    <iframe style="width: 100%; height: 1000px; overflow: hidden;" src="https://www.arcgis.com/apps/opsdashboard/index.html#/409af567637846e3b5d4182fcd779bea" width="10" height="1000">Iframes not supported</iframe>
-                                     <p>Credit: Johns Hopkins University</p>
-                                    <div class="row">
-                                          <div class="col-md-4"></div>
-                                          <!-- <div class="col-md-6 section-info wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi odio eligendi dolorem pariatur obcaecati iste voluptas laudantium vel voluptates, ipsa suscipit tempore alias laborum. Consequatur aliquam libero eaque! Delectus, suscipit?</div> -->
-                                    </div>
-
-                                    <div class="row">
-                                          <div class="col-md-4"></div>
-                                          <div class="col-md-8 more wow fadeInUp" data-wow-delay="0.7s">
-                                                <!-- <button id="btn">Know more</button> -->
+                                                <div class="row">
+                                                      <div class="col-md-4">
+                                                      </div>
+                                                      <div class="col-md-8 more wow fadeInUp" data-wow-delay="0.7s">
+                                                            <!-- <button id="btn">Know more</button> -->
+                                                      </div>
+                                                </div>
                                           </div>
                                     </div>
-
                               </div>
 
                         </div>
@@ -169,67 +209,6 @@
 
                   <!--------------- about section ends here --------------->
 
-                  <!--------------- services section starts here --------------->
-
-<!-- 
-           <section class="services">
-
-            <div class="container-fluid">
-
-                  <div class="section-data">
-
-                        <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-2 section-index wow fadeInUp" data-wow-delay="0.3s"></div>
-                              <div class="col-md-8 section-heading wow fadeInUp" data-wow-delay="0.4s">Common Symptoms</div>
-                        </div>
-
-                        <div class="row service">
-                              <div class="col-md-4"></div>
-                              <div class="col-md-3 wow fadeInUp" data-wow-delay="0.5s">
-                                          <img class="symptom-icon"src="img/cough.png">
-                                 
-                                    <div class="icon-title">
-                                          <span style="font-weight: bold;">Coughing</span> <br>
-                                    </div>
-                              </div>
-
-                              <div class="col-md-3 wow fadeInUp" data-wow-delay="0.6s">
-                                    <img class="symptom-icon"src="img/breath.png">
-                                          <div class="icon-title">
-                                                <span style="font-weight: bold;">Shortness of Breath</span> <br> 
-                                          </div>
-                              </div>
-                        </div>
-
-                        <div class="row service">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-3 wow fadeInUp" data-wow-delay="0.7s">
-                                          <img class="symptom-icon"src="img/fever.png">
-                                          <div class="icon-title">
-                                                <span style="font-weight: bold;">Fever</span> <br>
-                                          </div>
-                                    </div>
-      
-                                    <div class="col-md-3 wow fadeInUp" data-wow-delay="0.8s">
-                                          <img class="symptom-icon"src="img/headache.png">
-                                                <div class="icon-title">
-                                                      <span style="font-weight: bold;">Headaches</span> <br>
-                                                </div>
-                                    </div>
-                              </div>
-                  </div>
-
-            </div>
-
-           </section>
-       
-     </section> -->
-     
- 
-            <!--------------- services section ends here --------------->
-
-                  <!--------------- services section ends here --------------->
 
 
                   <!--------------- footer starts here --------------->
@@ -237,17 +216,19 @@
                   <div class="footer">
 
                         <div class="container">
-      
+
                               <div class="info">
-                                    
+
                                     <div class="row">
                                           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s" id="address">
-                                                <p>  <span>Copyright &copy;
-                                                      <script>document.write(new Date().getFullYear());</script> </span></p>
-                                                      <p> Team EN-DOS <br> Elizabeth Bruda, Natasha Setiadi, Donald Nelson, Owen Orsini, Sanjay Ravigopal, and Rijul Patel</p>
+                                                <p> <span>Copyright &copy;
+                                                            <script>document.write(new Date().getFullYear());</script>
+                                                      </span></p>
+                                                <p> Team EN-DOS <br> Elizabeth Bruda, Natasha Setiadi, Donald Nelson,
+                                                      Owen Orsini, Sanjay Ravigopal, and Rijul Patel</p>
                                                 <br><br>
                                           </div>
-      
+
                                           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s" id="media">
                                                 <!-- <ul>
                                                       <li><ion-icon name="logo-facebook"></ion-icon></li>
@@ -258,26 +239,26 @@
       
                                                       <li><ion-icon name="logo-youtube"></ion-icon></li>
                                                 </ul> -->
-      
+
                                                 <br><br>
                                           </div>
-      
+
                                           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s" id="mail">
-                                                <p><a target="_blank" >Video Background by Videezy.com</a></p>
-                                               
+                                                <p><a target="_blank">Video Background by Videezy.com</a></p>
+
                                           </div>
-                                    
+
                                     </div>
-                                   
-      
-                                    
-                                    </div>
-      
+
+
+
                               </div>
-      
+
                         </div>
-      
+
                   </div>
+
+            </div>
 
             <!--------------- footer ends here --------------->
 
@@ -286,147 +267,147 @@
       </div>
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script>
-$(window).on('load', function(){
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      <script>
+            $(window).on('load', function () {
 
-$('#status').fadeOut();
-$('#preloader').delay(350).fadeOut('slow');
-$('#body').delay(350).css({'overflow': 'visible'});
+                  $('#status').fadeOut();
+                  $('#preloader').delay(350).fadeOut('slow');
+                  $('#body').delay(350).css({ 'overflow': 'visible' });
 
-})
-// navigation starts here
-$("#toggle").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $("#resize ul li a").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $(".close-btn").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
+            })
+            // navigation starts here
+            $("#toggle").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
+            $("#resize ul li a").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
+            $(".close-btn").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
 
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".nav");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
-});
+            $(function () {
+                  $(document).scroll(function () {
+                        var $nav = $(".nav");
+                        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                  });
+            });
 
-new WOW().init();
+            new WOW().init();
 
-// Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-      }
-    }
-  });
+            // Select all links with hashes
+            $('a[href*="#"]')
+                  // Remove links that don't actually link to anything
+                  .not('[href="#"]')
+                  .not('[href="#0"]')
+                  .click(function (event) {
+                        // On-page links
+                        if (
+                              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                              &&
+                              location.hostname == this.hostname
+                        ) {
+                              // Figure out element to scroll to
+                              var target = $(this.hash);
+                              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                              // Does a scroll target exist?
+                              if (target.length) {
+                                    // Only prevent default if animation is actually gonna happen
+                                    event.preventDefault();
+                                    $('html, body').animate({
+                                          scrollTop: target.offset().top
+                                    }, 1000, function () {
+                                          // Callback after animation
+                                          // Must change focus!
+                                          var $target = $(target);
+                                          $target.focus();
+                                          if ($target.is(":focus")) { // Checking if the target was focused
+                                                return false;
+                                          } else {
+                                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                                $target.focus(); // Set focus again
+                                          };
+                                    });
+                              }
+                        }
+                  });
 
 
-</script>
+      </script>
       <script src="Symptom_Script.js"></script>
 
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <script>
- $(window).on('load', function(){
+            $(window).on('load', function () {
 
-$('#status').fadeOut();
-$('#preloader').delay(350).fadeOut('slow');
-$('#body').delay(350).css({'overflow': 'visible'});
+                  $('#status').fadeOut();
+                  $('#preloader').delay(350).fadeOut('slow');
+                  $('#body').delay(350).css({ 'overflow': 'visible' });
 
-})
-// navigation starts here
-$("#toggle").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $("#resize ul li a").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
-      $(".close-btn").click(function() {
-            $(this).toggleClass('on');
-            $("#resize").toggleClass("active");
-      });
+            })
+            // navigation starts here
+            $("#toggle").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
+            $("#resize ul li a").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
+            $(".close-btn").click(function () {
+                  $(this).toggleClass('on');
+                  $("#resize").toggleClass("active");
+            });
 
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".nav");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-  });
-});
+            $(function () {
+                  $(document).scroll(function () {
+                        var $nav = $(".nav");
+                        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                  });
+            });
 
-new WOW().init();
+            new WOW().init();
 
-// Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-      }
-    }
-  });
+            // Select all links with hashes
+            $('a[href*="#"]')
+                  // Remove links that don't actually link to anything
+                  .not('[href="#"]')
+                  .not('[href="#0"]')
+                  .click(function (event) {
+                        // On-page links
+                        if (
+                              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                              &&
+                              location.hostname == this.hostname
+                        ) {
+                              // Figure out element to scroll to
+                              var target = $(this.hash);
+                              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                              // Does a scroll target exist?
+                              if (target.length) {
+                                    // Only prevent default if animation is actually gonna happen
+                                    event.preventDefault();
+                                    $('html, body').animate({
+                                          scrollTop: target.offset().top
+                                    }, 1000, function () {
+                                          // Callback after animation
+                                          // Must change focus!
+                                          var $target = $(target);
+                                          $target.focus();
+                                          if ($target.is(":focus")) { // Checking if the target was focused
+                                                return false;
+                                          } else {
+                                                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                                $target.focus(); // Set focus again
+                                          };
+                                    });
+                              }
+                        }
+                  });
       </script>
 </body>
 

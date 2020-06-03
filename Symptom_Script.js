@@ -4,104 +4,213 @@ var app = new Vue({
         symptomsData: [
 			{
 				texts: "Persistent dry cough",
-                point: 0,
+                point: [{
+                    covid19: 20,
+                    cold: 15,
+                    flu: 20 
+                }
+                ],
                 checked: false
 
             },
-
-            {
-                texts: "Persistent wet cough",
-                point: 0,
-                checked: false
-            },
-
 			{
-				texts: "Fever greater than 100 F",
-                point: 0,
+				texts: "Fever",
+                point: [
+                {
+                    covid19: 20,
+                    cold: 5,
+                    flu: 20
+                }
+                ],
                 checked: false
             },
 
             {
                 texts: "Fatigue",
-                point: 0,
-                checked: false
-            },
-
-            {
-                texts: "Shortness of breath or difficulty breathing",
-                point: 0,
+                point: [
+                {
+                    covid19: 10,
+                    cold: 10,
+                    flu: 15
+                }
+                ],
                 checked: false
             },
 
             {
                 texts: "Muscle or body aches",
-                point: 0,
+                point: [
+                {
+                    covid19: 10,
+                    cold: 15,
+                    flu: 20
+                }
+                ],
                 checked: false
             },
 
             {
                 texts: "Headache",
-                point: 0,
+                point: [
+                    {
+                        covid19: 10,
+                        cold: 5,
+                        flu: 20
+                    }
+                    ],
                 checked: false
             },
             
             {
-                texts: "New loss of taste or smell",
-                point: 0,
+                texts: "Loss of taste or smell",
+                point: [
+                    {
+                        covid19: 10,
+                        cold: 20,
+                        flu: 20
+                    }
+                    ],
                 checked: false
             },
             
             {
                 texts: "Sore throat",
-                point: 0,
+                point: [
+                    {
+                        covid19: 10,
+                        cold: 20,
+                        flu: 10
+                    }
+                    ],
                 checked: false
             },
             
             {
                 texts: "Congestion or runny nose",
-                point: 0,
+                point: [
+                    {
+                        covid19: 5,
+                        cold: 20,
+                        flu: 10
+                    }
+                    ],
                 checked: false
             },
             
             {
                 texts: "Nausea or vomiting",
-                point: 0,
+                point: [
+                    {
+                        covid19: 5,
+                        cold: 0,
+                        flu: 0
+                    }
+                    ],
+                checked: false
+            }, 
+            {
+                texts: "Sneezing",
+                point: [
+                    {
+                        covid19: 0,
+                        cold: 20,
+                        flu: 10
+                    }
+                    ],
                 checked: false
             },
             
             {
                 texts: "Diarrhea",
-                point: 0,
+                point: [
+                    {
+                        covid19: 5,
+                        cold: 0,
+                        flu: 0
+                    }
+                    ],
                 checked: false
             },
-            
             {
-                texts: "Trouble breathing *",
-                point: 0,
+                texts: "Chills, repeated shaking",
+                point: [
+                {
+                    covid19: 10,
+                    cold: 5,
+                    flu: 20
+                }
+                ],
                 checked: false
             },
-            
+            {
+                texts: "Swollen toes",
+                point: [
+                {
+                    covid19: 5,
+                    cold: 0,
+                    flu: 0
+                }
+                ],
+                checked: false
+            },
+            {
+                texts: "Shortness of breath or difficulty breathing",
+                point: [
+                {
+                    covid19: 10,
+                    cold: 0,
+                    flu: 0
+                }
+                ],
+                checked: false
+            },
+
             {
                 texts: "Persistent pain or pressure in the chest *",
-                point: 0,
+                point: [
+                {
+                    covid19: 20,
+                    cold: 0,
+                    flu: 0
+                }
+                ],
                 checked: false
             },
             
             {
                 texts: "New confusion *",
-                point: 0,
+                point: [
+                    {
+                        covid19: 10,
+                        cold: 10,
+                        flu: 15
+                    }
+                    ],
                 checked: false
             },
             
             {
                 texts: "Inability to wake or stay awake *",
-                point: 0,
+                point: [
+                    {
+                        covid19:10,
+                        cold: 10,
+                        flu: 10
+                    }
+                    ],
                 checked: false
             },
             
+            
             {
                 texts: "Bluish lips or face *",
-                point: 0,
+                point: [
+                    {
+                        covid19: 15,
+                        cold: 0,
+                        flu: 0
+                    }
+                    ],
                 checked: false
             }
         ],
@@ -112,7 +221,10 @@ var app = new Vue({
 
         selectedSymptoms: "",
 
-        otherSymptoms: ""
+        otherSymptoms: "",
+
+        selectedCategory: 1,
+        result: ""
     },
     computed: {
         totalSelected: function(){
@@ -122,11 +234,127 @@ var app = new Vue({
                 total += this.checkedSymptoms[i].texts + ", "
             }
             return total
+        },
+
+        countCovid: function(){
+            total = 0;
+            for(var i in this.checkedSymptoms)
+            {
+                total = total + this.checkedSymptoms[i].point[0].covid19;
+            }
+            return total
+        },
+
+        countCold: function(){
+            total = 0;
+            for(var i in this.checkedSymptoms)
+            {
+                total = total + this.checkedSymptoms[i].point[0].cold;
+            }
+            return total
+        },
+
+        countFlu: function(){
+            total = 0;
+            for(var i in this.checkedSymptoms)
+            {
+                total = total + this.checkedSymptoms[i].point[0].flu;
+            }
+            return total
         }
     },
     methods: {
-        
-          /* Keep for checking if the checkboxes work 
+        calculateSymptoms: function()
+        {
+            covid19total = this.countCovid;
+            covid19total *= this.selectedCategory;
+
+            coldtotal = this.countCold;
+            flutotal = this.countFlu;
+
+            if(this.otherSymptoms.includes("tired"))
+            {
+                covid19total +=5;
+            }
+
+            if(this.otherSymptoms.includes("rash")) 
+            {
+                covid19total +=5;
+            }
+
+            if(this.otherSymptoms.includes("weak"))
+            {
+                covid19total +=5;
+            }
+
+            if(this.otherSymptoms.includes("dizzy"))
+            {
+                covid19total +=5;
+            }
+            
+            covid19total = covid19total / 1435;
+            coldtotal = coldtotal / 155;
+            flutotal =  flutotal/190;
+
+            var totals = [];
+            totals.push(covid19total);
+            totals.push(coldtotal);
+            totals.push(flutotal);
+
+            max = covid19total;
+            maxIndex= 0
+            for (var i = 1; i < totals.length; i++) 
+            {
+                if(totals[i] > max)
+                {
+                    max = totals[i];
+                    maxIndex = i;
+                }
+            }
+
+            var greaterThanZero = true;
+            for (var j = 0; i < totals.length; i++) 
+            {
+                if(totals[i] <= 0)
+                {
+                    greaterThanZero = false;
+                    break;
+                }
+            }
+
+            if(greaterThanZero == true)
+            {
+                if(maxIndex == 0)
+                {
+                    this.result= "You most likely have COVID19";
+                }
+
+                else if(maxIndex == 1)
+                {
+                    this.result= "You most likely have the cold";
+                }
+
+                else if(maxIndex == 2)
+                {
+                    this.result= "You most likely have the flu";
+                }
+
+                else
+                {
+                    this.result= "You most likely do not have either COVID19, the cold, or the flu"
+                }
+            }
+
+            else
+            {
+                this.result= "You most likely do not have either COVID19, the cold, or the flu"
+            }
+
+
+
+
+        },
+          
           printValues: function()
           {
             this.selectedSymptoms = "";
@@ -136,7 +364,7 @@ var app = new Vue({
                this.selectedSymptoms += this.checkedSymptoms[key]+", "; 
             }
           } 
-          */
+          
         }
 })
 

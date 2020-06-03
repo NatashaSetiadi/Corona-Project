@@ -720,7 +720,9 @@ margin-top:50px;
 .symptom-inputs{
       font-size:23px;
 }
-
+.symptom-results{
+      margin-top:10px;
+}
   #preloader{
       position:fixed;
       top:0;

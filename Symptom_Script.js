@@ -312,17 +312,17 @@ var app = new Vue({
                 }
             }
 
-            var greaterThanZero = true;
+            var NoneGreaterThanZero = true;
             for (var j = 0; i < totals.length; i++) 
             {
-                if(totals[i] <= 0)
+                if(totals[i] > 0)
                 {
                     greaterThanZero = false;
                     break;
                 }
             }
 
-            if(greaterThanZero == true)
+            if(greaterThanZero == false)
             {
                 if(maxIndex == 0)
                 {

@@ -264,8 +264,9 @@ var app = new Vue({
         }
     },
     methods: {
-        calculateSymptoms: function()
+        calculateSymptoms: function(event)
         {
+            console.log("Here")
             covid19total = this.countCovid;
             covid19total *= this.selectedCategory;
 
@@ -317,12 +318,12 @@ var app = new Vue({
             {
                 if(totals[i] > 0)
                 {
-                    greaterThanZero = false;
+                    NoneGreaterThanZero = false;
                     break;
                 }
             }
 
-            if(greaterThanZero == false)
+            if(NoneGreaterThanZero == false)
             {
                 if(maxIndex == 0)
                 {

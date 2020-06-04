@@ -349,6 +349,16 @@ var app = new Vue({
          
             if(NoneGreaterThanZero == false)
             {
+                if(totals[0] == totals[1] && totals[1] == totals[2])
+                {
+                    this.result = "You could have either COVID19, the cold, or the flu";
+                    this.percentage = totals[0] * 100;
+                    this.percentage = this.percentage.toFixed(2);
+                    this.hasAnyVirus = true;
+                }
+
+                else
+                {
                 if(maxIndex == 0)
                 {
                     if(totals[0] == totals[1])
@@ -429,6 +439,7 @@ var app = new Vue({
                         this.hasAnyVirus = true;
                     }
                 }
+            }
             }
 
             else

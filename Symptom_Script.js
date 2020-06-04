@@ -302,6 +302,7 @@ var app = new Vue({
             coldtotal = coldtotal / 155;
             flutotal =  flutotal/190;
 
+
              /*
             console.log("COVID: " + covid19total);
             console.log("Cold: " + coldtotal);
@@ -312,6 +313,16 @@ var app = new Vue({
             totals.push(coldtotal);
             totals.push(flutotal);
 
+
+            //changes to not have any 100% percentages
+            for(var i = 0; i < totals.length; i++)
+            {
+                if(totals[i] >= 100)
+                {
+                    totals[i] = 99.00;
+                }
+            }
+            
             //finds maximum value
             max = covid19total;
             maxIndex= 0
@@ -340,40 +351,93 @@ var app = new Vue({
             {
                 if(maxIndex == 0)
                 {
-                    this.result= "You most likely have COVID19";
-                    this.percentage = totals[0] * 100;
-                    this.percentage = this.percentage.toFixed(2);
-                    this.hasAnyVirus = true;
+                    if(totals[0] == totals[1])
+                    {
+                        this.result = "You could have either COVID19 or the cold";
+                        this.percentage = totals[0] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    if(totals[0] == totals[2])
+                    {
+                        this.result = "You could have either COVID19 or the flu";
+                        this.percentage = totals[0] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    else
+                    {
+                        this.result= "You most likely have COVID19";
+                        this.percentage = totals[0] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
                 }
 
                 if(maxIndex == 1)
                 {
-                    this.result= "You most likely have the cold";
-                    this.percentage = totals[1] * 100;
-                    this.percentage = this.percentage.toFixed(2);
-                    this.hasAnyVirus = true;
+                    if(totals[1] == totals[0])
+                    {
+                        this.result = "You could have either COVID19 or the cold";
+                        this.percentage = totals[1] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    if(totals[1] == totals[2])
+                    {
+                        this.result = "You could have either the cold or the flu";
+                        this.percentage = totals[1] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    else
+                    {
+                        this.result= "You most likely have cold";
+                        this.percentage = totals[1] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
                 }
 
                 if(maxIndex == 2)
                 {
-                    this.result= "You most likely have the flu";
-                    this.percentage = totals[2] * 100;
-                    this.percentage = this.percentage.toFixed(2);
-                    this.hasAnyVirus = true;
+                    if(totals[2] == totals[0])
+                    {
+                        this.result = "You could have either COVID19 or the flu";
+                        this.percentage = totals[2] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    if(totals[2] == totals[1])
+                    {
+                        this.result = "You could have either the cold or the flu";
+                        this.percentage = totals[2] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
+
+                    else
+                    {
+                        this.result= "You most likely have flu";
+                        this.percentage = totals[2] * 100;
+                        this.percentage = this.percentage.toFixed(2);
+                        this.hasAnyVirus = true;
+                    }
                 }
             }
 
             else
             {
-                this.result= "You most likely do not have either COVID19, the cold, or the flu"
+                this.result= "You most likely do not have either COVID19, the cold, or the flu";
             }
-
-
-
-
         },
           
-          printValues: function()
+          printValues: function(event)
           {
             this.selectedSymptoms = "";
             // Read Checked checkboxes value
@@ -383,7 +447,7 @@ var app = new Vue({
             }
           } 
           
-        }
+    }
 })
 
 //I added this here as for some reason the mobile view only works if I put this code in your file rather than in a script tag

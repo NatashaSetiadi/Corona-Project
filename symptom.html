@@ -187,8 +187,7 @@
                                                             <div class="symptom-results col-md-6 offset-4">
                                                                   <button v-on:click="calculateSymptoms">Submit</button>
                                                                   <p>{{result}}</p>
-                                                                  <br>
-                                                                  <p v-if="hasAnyVirus">Percent Certainty: {{percentage}}</p>
+                                                                  <p v-if="hasAnyVirus"><strong>Percent Certainty: {{percentage}}</strong></p>
                                                                 </div>
                                                             <div class="col-md-12">
                                                                   <iframe class="col-md-12"style="width: 100%; height: 1000px; overflow: hidden;"

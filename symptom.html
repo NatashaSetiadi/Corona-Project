@@ -130,12 +130,12 @@
                                                       <!-- Checkboxes list -->
                                                       <!--@submit.prevent="onSubmit"-->
                                                       <form class="symptom-inputs">
-                                                            <div class="col-md-6 offset-4"v-for="(symptom, index) in symptomsData">
+                                                            <div class="col-md-6 offset-md-4"v-for="(symptom, index) in symptomsData">
                                                                   <input type='checkbox' v-bind:value='symptom'
                                                                         v-model="checkedSymptoms">{{ symptomsData[index].texts }}
                                                                   </input>
                                                             </div>
-                                                            <p class="col-md-6 offset-4"><strong>Note: if you have anything of the symptoms marked
+                                                            <p class="col-md-6 offset-md-4"><strong>Note: if you have anything of the symptoms marked
                                                                         with an asterisk (*) then you should seek
                                                                         emergency medical care immediately</strong></p>
 
@@ -143,18 +143,18 @@
                                                             <input type='button' @click='printValues()' value='Print Selected Values'></input>
                                                             Selected items : {{ totalSelected }} 
                                                             -->
-                                                            <div class="col-md-6 offset-4">
+                                                            <div class="col-md-6 offset-md-4">
                                                                   <label>Other Symptoms: </label>
                                                                   <textarea class="other-symptoms" id="otherSymptoms"
                                                                         v-model="otherSymptoms">
                                                                   </textarea>
                                                             </div>
                                                             <br>
-                                                            <div class="col-md-6 offset-4">
+                                                            <div class="col-md-6 offset-md-4">
                                                                   <label for="LocationCategory">Use the map to select
                                                                         the category which you have spent the most time
                                                                         in.:</label>
-                                                                  <img src="img/categoryLegend.png">
+                                                                  <img class="symptom-key"src="img/categoryLegend.png">
 
                                                                   <select name="LocationCategory"
                                                                         v-model="selectedCategory">
@@ -169,7 +169,7 @@
                                                                   
                                                             </div>
                                                       </form>
-                                                            <div class="symptom-results col-md-6 offset-4">
+                                                            <div class="symptom-results col-md-6 offset-md-4">
                                                                   <button v-on:click="calculateSymptoms">Submit</button>
                                                                   <p>{{result}}</p>
                                                                   <p v-if="hasAnyVirus"><strong>Percent Certainty: {{percentage}}</strong></p>

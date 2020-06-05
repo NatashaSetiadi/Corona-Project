@@ -174,18 +174,19 @@
                                                       </form>
                              
                                                           
-                                                           
-                                                            <div class="symptom-results col-md-6 offset-md-4">
-                                                                  <button v-on:click="calculateSymptoms">Submit</button>
+                                                            <div class="col-md-12">
+                                                             <button v-on:click="calculateSymptoms">Submit</button>
                                                                   <p>{{result}}</p>
                                                                   <p v-if="hasAnyVirus"><strong>Percent Certainty: {{percentage}}</strong></p>
-                                                                </div>
-                                                       <div class="col-md-12">
+                                                                
+                                                            </div>
+                                                            <div class="symptom-results col-md-6 offset-md-4">
                                                                   <iframe class="col-md-12" style="width: 60%; height: 500px;"
                                                                   src="https://www.arcgis.com/apps/opsdashboard/index.html#/409af567637846e3b5d4182fcd779bea"
                                                                   >Iframes not supported</iframe>
                                                             <p>Map Credit: Johns Hopkins University</p>
-                                                            </div>
+                                                                </div>
+                                                      
                                                    
 
                                                     

@@ -270,7 +270,7 @@ var app = new Vue({
         calculateSymptoms: function(event)
         {
             covid19total = this.countCovid;
-            covid19total *= this.selectedCategory; //adds in the location factor
+            covid19total = covid19total * this.selectedCategory; //adds in the location factor
 
             //total from symptoms
             coldtotal = this.countCold;
@@ -356,9 +356,9 @@ var app = new Vue({
                     this.percentage = this.percentage.toFixed(2);
                     this.hasAnyVirus = true;
                 }
-
                 else
                 {
+
                 if(maxIndex == 0)
                 {
                     if(totals[0] == totals[1])
@@ -402,6 +402,11 @@ var app = new Vue({
                         this.percentage = totals[1] * 100;
                         this.percentage = this.percentage.toFixed(2);
                         this.hasAnyVirus = true;
+                        if(this.selectedCategory >= 6)
+                        {
+                            this.result += ". However since you have spent time in an area with a high density of COVID19 cases you could possibly have COVID19";
+                        }
+        
                     }
 
                     else
@@ -410,6 +415,11 @@ var app = new Vue({
                         this.percentage = totals[1] * 100;
                         this.percentage = this.percentage.toFixed(2);
                         this.hasAnyVirus = true;
+                        if(this.selectedCategory >= 6)
+                        {
+                            this.result += ". However since you have spent time in an area with a high density of COVID19 cases you could possibly have COVID19";
+                        }
+        
                     }
                 }
 
@@ -421,6 +431,7 @@ var app = new Vue({
                         this.percentage = totals[2] * 100;
                         this.percentage = this.percentage.toFixed(2);
                         this.hasAnyVirus = true;
+                        
                     }
 
                     if(totals[2] == totals[1])
@@ -429,6 +440,11 @@ var app = new Vue({
                         this.percentage = totals[2] * 100;
                         this.percentage = this.percentage.toFixed(2);
                         this.hasAnyVirus = true;
+                        if(this.selectedCategory >= 6)
+                        {
+                            this.result += ". However since you have spent time in an area with a high density of COVID19 cases you could possibly have COVID19";
+                        }
+        
                     }
 
                     else
@@ -437,6 +453,11 @@ var app = new Vue({
                         this.percentage = totals[2] * 100;
                         this.percentage = this.percentage.toFixed(2);
                         this.hasAnyVirus = true;
+                        if(this.selectedCategory >= 6)
+                        {
+                            this.result += ". However since you have spent time in an area with a high density of COVID19 cases you could possibly have COVID19";
+                        }
+        
                     }
                 }
             }

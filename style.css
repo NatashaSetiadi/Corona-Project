@@ -699,7 +699,14 @@ margin-top:50px;
 .tips{
       width:100%;
 }
+.corona-video{
+      width:100%
 }
+}
+.practices{
+      font-size:20px;
+}
+
 .app{
       
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

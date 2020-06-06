@@ -692,9 +692,12 @@ margin-top:50px;
 .symptom-results{
       margin-top:10px;
 }
-@medai(){
-.symptom-key{
-
+@media(max-width:670px){
+.news{
+      display:none;
+}
+.tips{
+      width:100%;
 }
 }
 .app{
@@ -735,4 +738,8 @@ margin-top:50px;
 }
 input[type=checkbox]:hover{
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+li{
+      list-style-type:none;
 }
